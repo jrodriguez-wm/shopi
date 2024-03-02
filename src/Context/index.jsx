@@ -18,7 +18,7 @@ export const  ShoppingCartProvider = ({children}) =>{
 
 
     // Agregar al Carro de Compras 
-    const [cartProducts,setcartProducts] = useState([]);  
+    const [cartProducts,setCartProducts] = useState([]);  
 
     // Mostrar/Ocultar compras
     const [isCheckoutSideMenuOpen,setIsCheckoutSideMenuOpen] = useState(false);  
@@ -35,7 +35,7 @@ export const  ShoppingCartProvider = ({children}) =>{
             productToShow,
             setProductToShow,
             cartProducts,
-            setcartProducts,
+            setCartProducts,
             isCheckoutSideMenuOpen,
             openCheckoutSideMenuOpen,
             closeCheckoutSideMenuOpen
