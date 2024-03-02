@@ -6,14 +6,19 @@ export const  ShoppingCartProvider = ({children}) =>{
 
     // Contador de productos
     const [count,setCount] = useState(0);  
+    
 
     // Mostrar/Ocultar Detalle
     const [isProductDetailOpen,setIsProductDetailOpen] = useState(false);  
     const openProductDetail = () => setIsProductDetailOpen(true);
     const closeProductDetail = () => setIsProductDetailOpen(false);
 
-    //Agregar Card al detalle
+    // Agregar Card al detalle
     const [productToShow,setProductToShow] = useState({});  
+
+
+    // Agregar al Carro de Compras 
+    const [cartProducts,setcartProducts] = useState([]);  
 
     return(
         <ShoppingCartContext.Provider value={{
@@ -23,7 +28,9 @@ export const  ShoppingCartProvider = ({children}) =>{
             openProductDetail,
             closeProductDetail,
             productToShow,
-            setProductToShow
+            setProductToShow,
+            cartProducts,
+            setcartProducts
         }}>
             {children}
         </ShoppingCartContext.Provider>
