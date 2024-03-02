@@ -4,11 +4,15 @@ import { ShoppingCartContext } from "../../Context";
 
 const Card = (data)=>{
     const context = useContext(ShoppingCartContext)
+    const showProduct = (productDeatil) =>{
+        context.openProductDetail();
+        context.setProductToShow(productDeatil);
+    }
 
     return(
         
         <div className='bg-white cursor-pointer w-56 h-60 rounded-lg' 
-            onClick={ ()=>context.openProductDetail()}> 
+            onClick={ ()=>showProduct(data.data)}> 
             {/* <p> {JSON.stringify(data.data)} </p> */}
             <figure className='relative mb-2 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>

@@ -4,12 +4,16 @@ export const ShoppingCartContext = createContext();
 
 export const  ShoppingCartProvider = ({children}) =>{
 
+    // Contador de productos
     const [count,setCount] = useState(0);  
-    // console.log('Count',count);
-    const [isProductDetailOpen,setIsProductDetailOpen] = useState(false);  
 
+    // Mostrar/Ocultar Detalle
+    const [isProductDetailOpen,setIsProductDetailOpen] = useState(false);  
     const openProductDetail = () => setIsProductDetailOpen(true);
     const closeProductDetail = () => setIsProductDetailOpen(false);
+
+    //Agregar Card al detalle
+    const [productToShow,setProductToShow] = useState({});  
 
     return(
         <ShoppingCartContext.Provider value={{
@@ -18,7 +22,8 @@ export const  ShoppingCartProvider = ({children}) =>{
             isProductDetailOpen,
             openProductDetail,
             closeProductDetail,
-            
+            productToShow,
+            setProductToShow
         }}>
             {children}
         </ShoppingCartContext.Provider>
