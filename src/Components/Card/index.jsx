@@ -6,6 +6,7 @@ const Card = (data)=>{
     const context = useContext(ShoppingCartContext)
     const showProduct = (productDeatil) =>{
         context.openProductDetail();
+        context.closeCheckoutSideMenuOpen()
         context.setProductToShow(productDeatil);
     }
 
@@ -15,7 +16,7 @@ const Card = (data)=>{
         context.setcartProducts([...context.cartProducts, productData]);
         context.openCheckoutSideMenuOpen()
         context.closeProductDetail()
-        console.log('carrito:',context.cartProducts);
+        // console.log('carrito:',context.cartProducts);
     }
 
     return(
