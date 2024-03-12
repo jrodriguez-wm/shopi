@@ -8,6 +8,30 @@ import { ShoppingCartContext } from "../../Context";
 function Home() {
   const context = useContext(ShoppingCartContext)
 
+  const renderView = () =>{
+    if(context.searchByTitle?.length>0)
+      if(context.filterItems?.length>0)
+        return (
+          context.filterItems?.map(item=>(
+            //  <p> {JSON.stringify(item)} </p> 
+            <Card key={item.id} data={item}/>
+          ))
+        )
+      else
+        return(
+          <div>
+            No se encontraron resultados
+          </div>
+        )
+    else
+      return (
+        context.items?.map(item=>(
+          //  <p> {JSON.stringify(item)} </p> 
+          <Card key={item.id} data={item}/>
+        ))
+    )
+  }
+
   return (
     <Layout>
 
@@ -19,12 +43,7 @@ function Home() {
           placeholder='Busca tu producto...' 
           onChange={(event) => context.setSearchByTitle( event.target.value)}/>      
         <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
-          {
-            context.items?.map(item=>(
-              //  <p> {JSON.stringify(item)} </p> 
-              <Card key={item.id} data={item}/>
-            ))
-          }
+          {renderView()}
         </div>
         <ProductDetail/>
     </Layout>    
