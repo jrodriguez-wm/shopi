@@ -65,6 +65,9 @@ export const  ShoppingCartProvider = ({children}) =>{
         
         if(searchType==='both')
             return filterItemsByCategory(items,searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+
+        if(!searchType)
+            return items
         
         
     }
