@@ -9,7 +9,7 @@ function Home() {
   const context = useContext(ShoppingCartContext)
 
   const renderView = () =>{
-    if(context.searchByTitle?.length>0)
+    if(context.searchByTitle?.length>0 || context.searchByCategory?.length>0)
       if(context.filterItems?.length>0)
         return (
           context.filterItems?.map(item=>(
@@ -41,7 +41,7 @@ function Home() {
         <input className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none' 
           type="text" id="buscador" 
           placeholder='Busca tu producto...' 
-          onChange={(event) => context.setSearchByTitle( event.target.value)}/>      
+          onChange={(event) => context.setSearchByTitle( event.target.value)}/>            
         <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
           {renderView()}
         </div>
